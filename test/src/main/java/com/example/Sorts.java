@@ -82,8 +82,29 @@ public class Sorts extends BaseTest {
     }
 
 
-    public static void quickSort() {
-    }
+    public static int[] quickSort(int low, int high) {
+        if (low >= high) {
+            return arrays;
+        }
+        int value = arrays[low];
+        int tmpLow = low;
+        int tmpHigh = high;
+        while(tmpLow < tmpHigh) {
+            while(tmpLow < tmpHigh && arrays[tmpHigh] < value) {
+                tmpHigh--;
+            }
+            arrays[tmpLow] = arrays[tmpHigh];
 
+            while(tmpLow < tmpHigh && arrays[tmpLow] > value) {
+                tmpLow++;
+            }
+            arrays[tmpHigh] = arrays[tmpLow];
+        }
+        arrays[tmpLow] = value;
+
+        quickSort(low, tmpLow - 1);
+        quickSort(tmpHigh + 1, high);
+        return arrays;
+    }
 
 }

@@ -19,7 +19,8 @@ public class TestMain extends BaseTest {
 //        out(twoStackToQueue_7.deleteHead() + "");
 //        out(twoStackToQueue_7.deleteHead() + "");
 
-        for(int i : Sorts.insertSort()) {
+        Sorts.quickSort(0, Sorts.arrays.length - 1);
+        for(int i : Sorts.arrays) {
             out(i + "");
         }
     }
