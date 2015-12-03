@@ -3,7 +3,7 @@ package com.example;
 /**
  * Created by chuyifeng on 2015/11/12.
  */
-public class PrintArrayReverse extends BaseTest {
+public class PrintArrayReverse_4 extends BaseTest {
 
     /**
      * 输入一个链表，从尾到头打印链表每个节点的值。

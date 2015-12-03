@@ -3,7 +3,7 @@ package com.example;
 /**
  * Created by chuyifeng on 2015/11/12.
  */
-public class BinarySearch2DArray extends BaseTest {
+public class BinarySearch2DArray_3 extends BaseTest {
 
     /**
      * 说明：
