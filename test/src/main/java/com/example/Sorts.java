@@ -6,22 +6,39 @@ package com.example;
 public class Sorts extends BaseTest {
 
     /**
-     * 1. 4种排序算法
-     * 冒泡排序
+     * ---------------------------------------------------------------
+     *冒泡排序
+
      * 前后依次比较,这样每一轮最大(最小)的的数便会出现在右边(左边)
      * time : O (n^2)
      *
-     * 插入排序
+     * ---------------------------------------------------------------
+     *插入排序
+     *
      * 将一个数插入到已经排好序的序列中(联想到抓扑克牌)
      * 适合元素较少的时候
-     * time : O (n^2) 最优情况 不需要移动, 最差情况,需要移动 n*(n-1)/2 元素
-     * mem :  O (1)
-     * <p/>
-     * 归并排序
      *
-     * <p/>
-     * 快速排序
+     *  time : O (n^2) 最优情况 不需要移动, 最差情况,需要移动 n*(n-1)/2 元素
+     *  mem :  O (1)
      *
+     * ---------------------------------------------------------------
+     *归并排序
+     *  拆分成若干个俩个元素的序列,这俩个元素可以大小.
+     *
+     *
+     *  time : O(nlog2n)
+     *  mem :  O(n)
+     *
+     * ---------------------------------------------------------------
+     *快速排序
+     *
+     *  time : 最好 O(nlgn)  最差 O(n*n) 平均O(nlong)
+     *
+     *
+     *  若从空间复杂度来考虑：首选堆排序，其次是快速排序，最后是归并排序。
+     *  若从稳定性来考虑，应选取归并排序，因为堆排序和快速排序都是不稳定的。
+     *  若从平均情况下的排序速度考虑，应该选择快速排序。
+     * ---------------------------------------------------------------
      *
      **/
 
@@ -42,29 +59,6 @@ public class Sorts extends BaseTest {
 
     public static int[] insertSort() {
         for (int i = 1; i < arrays.length; i++) {
-//            /** 1. whether need insert **/
-//            int j;
-//            boolean find = false;
-//            for (j = 0; j < i; j++) {
-//                if (arrays[i] > arrays[j]) {
-//                    find = true;
-//                    break;
-//                }
-//            }
-//            /** 2. if need insert , move all and insert **/
-//            if (find) {
-//                int m = i;
-//                int current = arrays[i];
-//                while (m > j) {
-//                    arrays[m] = arrays[m - 1];
-//                    m--;
-//                }
-//                arrays[j] = current;
-//            }
-//               ||
-//               ||  simplify version
-//               \/
-
             /** 1. move all until end or big one appear **/
             int j = i;
             int target = arrays[i];
@@ -79,10 +73,33 @@ public class Sorts extends BaseTest {
     }
 
     public static void mergeSort() {
+
     }
 
 
-    public static void quickSort() {
+    public static int[] quickSort(int low, int high) {
+        if (low >= high) {
+            return arrays;
+        }
+        int value = arrays[low];
+        int tmpLow = low;
+        int tmpHigh = high;
+        while(tmpLow < tmpHigh) {
+            while(tmpLow < tmpHigh && arrays[tmpHigh] < value) {
+                tmpHigh--;
+            }
+            arrays[tmpLow] = arrays[tmpHigh];
+
+            while(tmpLow < tmpHigh && arrays[tmpLow] > value) {
+                tmpLow++;
+            }
+            arrays[tmpHigh] = arrays[tmpLow];
+        }
+        arrays[tmpLow] = value;
+
+        quickSort(low, tmpLow - 1);
+        quickSort(tmpHigh + 1, high);
+        return arrays;
     }
 
 
