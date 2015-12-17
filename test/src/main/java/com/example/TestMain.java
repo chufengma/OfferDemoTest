@@ -3,8 +3,12 @@ package com.example;
 public class TestMain extends BaseTest {
 
     public static void main(String[] args) {
-        // PrintArrayReverse_4.start();
-        // RebuildTree_6.start();
+        TimesHalfsNum_29.loopAndKeyValue();
+    }
+
+
+    // PrintArrayReverse_4.start();
+    // RebuildTree_6.start();
 
 //        TwoStackToQueue_7 twoStackToQueue_7 = new TwoStackToQueue_7();
 //        twoStackToQueue_7.appendTail(3);
@@ -28,10 +32,8 @@ public class TestMain extends BaseTest {
 //            out(i + "");
 //        }
 
-        // ReviceArrayMin_8.start();
+    // ReviceArrayMin_8.start();
 
-        out(Fibonacci_9.digui(4) + "");
-        out(Fibonacci_9.loop(4) + "");
-    }
-
+//    out(Fibonacci_9.digui(4) + "");
+//    out(Fibonacci_9.loop(4) + "");
 }
