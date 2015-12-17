@@ -19,10 +19,19 @@ public class TestMain extends BaseTest {
 //        out(twoStackToQueue_7.deleteHead() + "");
 //        out(twoStackToQueue_7.deleteHead() + "");
 
-        Sorts.mergeSort();
-        for(int i : Sorts.arrays) {
-            out(i + "");
-        }
+//        Sorts.mergeSort();
+//        for(int i : Sorts.arrays) {
+//            out(i + "");
+//        }
+//        Sorts.quickSort(0, Sorts.arrays.length - 1);
+//        for(int i : Sorts.arrays) {
+//            out(i + "");
+//        }
+
+        // ReviceArrayMin_8.start();
+
+        out(Fibonacci_9.digui(4) + "");
+        out(Fibonacci_9.loop(4) + "");
     }
 
 }
