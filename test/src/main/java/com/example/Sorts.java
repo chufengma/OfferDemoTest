@@ -77,9 +77,42 @@ public class Sorts extends BaseTest {
     }
 
     public static void mergeSort() {
-
+        for(int i = 1; 2 * i  < arrays.length / 2; i *= 2) {
+            mergePass(i);
+        }
     }
 
+    public static void mergePass(int gap) {
+        int i = 0;
+        for(; (i + 4 * gap - 1) < arrays.length ; i = i + 4 * gap) {
+            merge(i, i + 2 * gap - 1, i + 4 * gap - 1);
+        }
+        if (i < arrays.length) {
+            merge(0, i - 1, arrays.length - 1);
+        }
+    }
+
+    public static void merge(int low, int middle, int high) {
+        int[] tmpArray = new int[high - low + 1];
+        int pos = 0;
+        int tmpLow = low;
+        int tmpHigh = high;
+
+        while(tmpLow < tmpHigh) {
+            if (arrays[tmpLow] > arrays[tmpHigh]) {
+                tmpArray[pos] = arrays[tmpLow];
+                tmpLow++;
+            } else {
+                tmpArray[pos] = arrays[tmpHigh];
+                tmpHigh--;
+            }
+            pos++;
+        }
+
+        for(pos = 0 ;low <= high; low++, pos++) {
+            arrays[low] = tmpArray[pos];
+        }
+    }
 
     public static int[] quickSort(int low, int high) {
         if (low >= high) {
@@ -105,6 +138,7 @@ public class Sorts extends BaseTest {
         quickSort(tmpHigh + 1, high);
         return arrays;
     }
+
 
 
 }
